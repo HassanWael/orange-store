@@ -27,7 +27,7 @@ $phones = [
     ],
     [ 
      'name' => 'ITEL A48',
-     'img_url' =>'https://eshop.orange.jo/app-images/thumbs/0001495_apple-iphone-12-pro_220.jpeg',
+     'img_url' =>'https://eshop.orange.jo/app-images/thumbs/0001532_itel-a48_220.jpeg',
     'rate' => '0',
     'brand' => 'iTel',
     'price' => 'JOD 66.00'
@@ -50,11 +50,14 @@ $phones = [
     ],
 ];
 
+  
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,6 +65,7 @@ $phones = [
     <!-- Copyright © 2014 Monotype Imaging Inc. All rights reserved -->
 <link href="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/css/orange-helvetica.min.css" rel="stylesheet" integrity="sha384-ARRzqgHDBP0PQzxQoJtvyNn7Q8QQYr0XT+RXUFEPkQqkTB6gi43ZiL035dKWdkZe" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-Di/KMIVcO9Z2MJO3EsrZebWTNrgJTrzEDwAplhM5XnCFQ1aDhRNWrp6CWvVcn00c" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -102,6 +106,52 @@ $phones = [
     </div>
   </div>
 </nav>
+
+<div class="container">
+  <div class="row"> 
+     <?php 
+     foreach ($phones as  $pho) {
+      echo "<div class='col-sm-3'>
+  <div class='d-flex flex-column justify-content-between align-items-center'>
+  ";
+  echo "<img class='pic' src=".$pho['img_url']." />";
+  echo $pho['brand'];
+  echo "<p>"; 
+  print_r ($pho['name']);
+  echo "</p>";
+  echo "<p>"; 
+  for ($i=0; $i <$pho['rate'] ; $i++) { 
+    echo '<i class="fa-solid fa-star"></i>';
+  }
+  for ($i=$pho['rate']; $i <5 ; $i++) { 
+    echo '<i class="fa-regular fa-star"></i>';
+  }
+
+  echo "<div class='lin'> <a href='#'> view Details</a></div>";
+
+  
+  echo "</p>";
+  echo '<hr>';
+  echo "<p class='price'>"; 
+  print_r ($pho['price']);
+  echo "</p>";
+
+echo "  <div style='width:90%'>
+<button  style='width:60%'  type='button' class='btn btn-dark'>Buy</button>
+<span><button type='button' class='btn btn-light bton'><img src='https://upload.wikimedia.org/wikipedia/commons/b/bc/Font_Awesome_5_solid_shopping-cart.svg'/></button></span>
+
+";
+  echo"</div></div></div>
+      ";
+}
+
+
+     ?>
+     </div>
+</div>
+
+<img src=""/>
+
 <script src="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/js/boosted.bundle.min.js" integrity="sha384-5thbp4uNEqKgkl5m+rMBhqR+ZCs+3iAaLIghPWAgOv0VKvzGlYKR408MMbmCjmZF" crossorigin="anonymous"></script>
 </body>
 </html>
